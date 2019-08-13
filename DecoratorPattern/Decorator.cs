@@ -10,22 +10,31 @@ namespace DecoratorPattern {
     {
         IBeverage beverage;
 
-        protected string description = null;
-        protected int cost = 0;
+        //protected string description = null;
+        //protected int cost = 0;
 
         public Decorator(IBeverage beverage)
         {
             this.beverage = beverage;
         }
 
-        public string GetDescription()
+        //public string GetDescription()
+        //{
+        //    return beverage.GetDescription();// + description;
+        //}
+
+        public virtual void GetCost()
         {
-            return beverage.GetDescription() + description;
+            beverage.GetCost();//; + cost;
+        }
+        public virtual void SetCost( int ExtraPrice)
+        {
+            beverage.SetCost(ExtraPrice);
         }
 
-        public int GetCost()
+        public virtual void SetOrder( string ExtraOrder)
         {
-            return beverage.GetCost() + cost;
+            beverage.SetOrder(ExtraOrder);
         }
     }
 }
